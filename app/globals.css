@@ -1,0 +1,715 @@
+/* ============================================
+   SHER-E-PUNJAB GROCERY STORE - GLOBAL STYLES
+   ============================================ */
+
+/* Import Tailwind CSS and Animation Library */
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Custom Variant for Dark Mode */
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================
+   COLOR SYSTEM - DESIGN TOKENS (Dark Maroon & Black)
+   ============================================ */
+
+/* Light Mode Color Palette - Dark Maroon & Black Theme */
+:root {
+  /* Base Colors - Dark Background */
+  --background: oklch(0.08 0 0);
+  --foreground: oklch(0.95 0 0);
+
+  /* Card Colors - Dark Maroon */
+  --card: oklch(0.12 0.08 15);
+  --card-foreground: oklch(0.95 0 0);
+
+  /* Popover Colors */
+  --popover: oklch(0.12 0.08 15);
+  --popover-foreground: oklch(0.95 0 0);
+
+  /* Brand Colors - Rich Dark Maroon */
+  --primary: oklch(0.35 0.18 15);
+  --primary-foreground: oklch(0.98 0 0);
+
+  /* Secondary Colors - Deep Black */
+  --secondary: oklch(0.1 0 0);
+  --secondary-foreground: oklch(0.95 0 0);
+
+  /* Muted Colors */
+  --muted: oklch(0.2 0 0);
+  --muted-foreground: oklch(0.7 0 0);
+
+  /* Accent Colors - Bright Maroon */
+  --accent: oklch(0.55 0.18 15);
+  --accent-foreground: oklch(0.1 0 0);
+
+  /* Destructive Colors */
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.95 0 0);
+
+  /* Border & Input Colors */
+  --border: oklch(0.18 0.05 15);
+  --input: oklch(0.15 0.05 15);
+  --ring: oklch(0.55 0.18 15);
+
+  /* Chart Colors */
+  --chart-1: oklch(0.55 0.18 15);
+  --chart-2: oklch(0.35 0.18 15);
+  --chart-3: oklch(0.1 0 0);
+  --chart-4: oklch(0.65 0.15 15);
+  --chart-5: oklch(0.25 0.15 15);
+
+  /* Border Radius */
+  --radius: 0.625rem;
+
+  /* Sidebar Colors */
+  --sidebar: oklch(0.1 0 0);
+  --sidebar-foreground: oklch(0.95 0 0);
+  --sidebar-primary: oklch(0.35 0.18 15);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-accent: oklch(0.2 0 0);
+  --sidebar-accent-foreground: oklch(0.95 0 0);
+  --sidebar-border: oklch(0.18 0.05 15);
+  --sidebar-ring: oklch(0.55 0.18 15);
+}
+
+/* Dark Mode Color Palette */
+.dark {
+  /* Base Colors */
+  --background: oklch(0.08 0 0);
+  --foreground: oklch(0.95 0 0);
+
+  /* Card Colors */
+  --card: oklch(0.12 0.08 15);
+  --card-foreground: oklch(0.95 0 0);
+
+  /* Popover Colors */
+  --popover: oklch(0.12 0.08 15);
+  --popover-foreground: oklch(0.95 0 0);
+
+  /* Brand Colors - Bright Maroon for Dark Mode */
+  --primary: oklch(0.55 0.18 15);
+  --primary-foreground: oklch(0.1 0 0);
+
+  /* Secondary Colors - Black */
+  --secondary: oklch(0.1 0 0);
+  --secondary-foreground: oklch(0.95 0 0);
+
+  /* Muted Colors */
+  --muted: oklch(0.2 0 0);
+  --muted-foreground: oklch(0.7 0 0);
+
+  /* Accent Colors */
+  --accent: oklch(0.65 0.18 15);
+  --accent-foreground: oklch(0.1 0 0);
+
+  /* Destructive Colors */
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.95 0 0);
+
+  /* Border & Input Colors */
+  --border: oklch(0.18 0.05 15);
+  --input: oklch(0.15 0.05 15);
+  --ring: oklch(0.55 0.18 15);
+
+  /* Chart Colors */
+  --chart-1: oklch(0.55 0.18 15);
+  --chart-2: oklch(0.65 0.18 15);
+  --chart-3: oklch(0.1 0 0);
+  --chart-4: oklch(0.75 0.15 15);
+  --chart-5: oklch(0.35 0.15 15);
+
+  /* Sidebar Colors */
+  --sidebar: oklch(0.1 0 0);
+  --sidebar-foreground: oklch(0.95 0 0);
+  --sidebar-primary: oklch(0.55 0.18 15);
+  --sidebar-primary-foreground: oklch(0.1 0 0);
+  --sidebar-accent: oklch(0.2 0 0);
+  --sidebar-accent-foreground: oklch(0.95 0 0);
+  --sidebar-border: oklch(0.18 0.05 15);
+  --sidebar-ring: oklch(0.55 0.18 15);
+}
+
+/* ============================================
+   TAILWIND THEME CONFIGURATION
+   ============================================ */
+
+@theme inline {
+  /* Typography */
+  --font-sans: "Geist", "Geist Fallback";
+  --font-serif: "Georgia", "Times New Roman", serif;
+  --font-devanagari: var(--font-devanagari);
+
+  /* Color Mappings */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Border Radius Scale */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Sidebar Color Mappings */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Default Radius */
+  --radius: 0.5rem;
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+@layer base {
+  /* Universal Styles */
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  /* Body Styles */
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ============================================
+   CUSTOM ANIMATIONS
+   ============================================ */
+
+/* Added new animations for wipe effects, color transitions, and parallax */
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes maroonGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(139, 0, 0, 0.3), 0 0 40px rgba(139, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(139, 0, 0, 0.5), 0 0 60px rgba(139, 0, 0, 0.2);
+  }
+}
+
+@keyframes orbs {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translate(30px, -30px) scale(1.1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translate(0, 50px) scale(0.9);
+    opacity: 0.3;
+  }
+  75% {
+    transform: translate(-30px, -20px) scale(1.05);
+    opacity: 0.35;
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+}
+
+/* Fade Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Slide Animations */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popup {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scale & Zoom Animations */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Special Effect Animations */
+@keyframes wipeIn {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes wipeOut {
+  from {
+    clip-path: inset(0 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 100%);
+  }
+}
+
+@keyframes expandHeight {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 1000px;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* Added new color transition animations */
+@keyframes colorShift {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(15deg);
+  }
+  100% {
+    filter: hue-rotate(0deg);
+  }
+}
+
+@keyframes brightnessShift {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.1);
+  }
+}
+
+@keyframes parallaxShift {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* ============================================
+   ANIMATION UTILITY CLASSES
+   ============================================ */
+
+/* Added new animation classes for dark maroon theme */
+.animate-gradient-shift {
+  animation: gradientShift 8s ease infinite;
+  background-size: 200% 200%;
+}
+
+.animate-maroon-glow {
+  animation: maroonGlow 3s ease-in-out infinite;
+}
+
+.animate-orbs {
+  animation: orbs 8s ease-in-out infinite;
+}
+
+/* Basic Animations */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.4s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+.animate-popup {
+  animation: popup 1s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInFromLeft 0.6s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInFromRight 0.6s ease-out forwards;
+}
+
+/* Scale & Zoom Animations */
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+.animate-zoom-in {
+  animation: zoomIn 0.4s ease-out forwards;
+}
+
+.animate-bounce-in {
+  animation: bounceIn 0.6s ease-out forwards;
+}
+
+/* Special Effects */
+.animate-wipe-in {
+  animation: wipeIn 0.8s ease-out forwards;
+}
+
+.animate-wipe-out {
+  animation: wipeOut 0.8s ease-out forwards;
+}
+
+.animate-expand {
+  animation: expandHeight 0.5s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  background-size: 1000px 100%;
+}
+
+/* Added new color and effect animation classes */
+.animate-color-shift {
+  animation: colorShift 4s ease-in-out infinite;
+}
+
+.animate-brightness-shift {
+  animation: brightnessShift 3s ease-in-out infinite;
+}
+
+.animate-parallax {
+  animation: parallaxShift 6s ease-in-out infinite;
+}
+
+/* Animation Delays */
+.animate-delay-100 {
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+.animate-delay-200 {
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+.animate-delay-300 {
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+.animate-delay-400 {
+  animation-delay: 0.4s;
+  opacity: 0;
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR STYLING
+   ============================================ */
+
+/* Main Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Custom Scrollbar for Dropdown Menus */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--muted);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* ============================================
+   3D EFFECTS & TRANSFORMS
+   ============================================ */
+
+/* 3D Perspective Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* ============================================
+   BACKDROP EFFECTS
+   ============================================ */
+
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+}
+
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+}
+
+/* ============================================
+   RESPONSIVE UTILITIES
+   ============================================ */
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* ============================================
+   SMOOTH TRANSITIONS
+   ============================================ */
+
+/* Global Smooth Transitions for Interactive Elements */
+button,
+a,
+.hover\:scale-105 {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Updated premium card styling for dark maroon theme */
+.premium-card {
+  @apply bg-gradient-to-br from-card to-card/80 border border-primary/20 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:border-primary/50 hover:bg-card/95;
+}
+
+.premium-card-hover {
+  @apply hover:scale-105 hover:-translate-y-1 transition-all duration-300;
+}
+
+/* Added dark background animation overlay */
+.animated-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.animated-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(139, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0.02) 25%,
+    rgba(139, 0, 0, 0.03) 50%,
+    rgba(0, 0, 0, 0.02) 75%,
+    rgba(139, 0, 0, 0.05) 100%
+  );
+  animation: gradientShift 15s ease infinite;
+  background-size: 200% 200%;
+}
