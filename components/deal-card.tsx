@@ -37,7 +37,7 @@ export function DealCard({ name, price, image, originalPrice, discount, descript
         <div className="absolute inset-0 backface-hidden bg-card border-2 border-primary rounded-lg overflow-hidden shadow-lg">
           <div className="relative h-64 overflow-hidden bg-muted">
             {discount && (
-              <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-3 py-1 rounded-full font-bold text-sm z-10 animate-pulse">
+              <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-3 py-1.5 rounded-md font-semibold text-xs z-10 shadow-lg">
                 {discount} OFF
               </div>
             )}

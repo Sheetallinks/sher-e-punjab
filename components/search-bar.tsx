@@ -88,7 +88,7 @@ export function SearchBar() {
                   className="relative flex-shrink-0 h-12 w-12 rounded-xl hover:bg-primary/10 hover:scale-110 transition-all duration-300"
                 >
                   <ShoppingCart className="w-6 h-6 text-foreground" />
-                  <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center shadow-lg">
+                  <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs font-semibold rounded-md w-5 h-5 flex items-center justify-center shadow-md">
                     {getCartCount()}
                   </span>
                 </Button>
@@ -130,12 +130,30 @@ export function SearchBar() {
                     <Globe className="w-6 h-6 text-foreground" />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="shadow-xl border-2">
+                <DropdownMenuContent align="end" className="shadow-xl border-2 max-h-[400px] overflow-y-auto">
                   <DropdownMenuItem onClick={() => setLanguage("en")} className="cursor-pointer font-medium">
                     English {language === "en" && "✓"}
                   </DropdownMenuItem>
                   <DropdownMenuItem onClick={() => setLanguage("pt")} className="cursor-pointer font-medium">
                     Português {language === "pt" && "✓"}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setLanguage("fr")} className="cursor-pointer font-medium">
+                    Français {language === "fr" && "✓"}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setLanguage("es")} className="cursor-pointer font-medium">
+                    Español {language === "es" && "✓"}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setLanguage("nl")} className="cursor-pointer font-medium">
+                    Nederlands {language === "nl" && "✓"}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setLanguage("hi")} className="cursor-pointer font-medium">
+                    हिंदी {language === "hi" && "✓"}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setLanguage("pa")} className="cursor-pointer font-medium">
+                    ਪੰਜਾਬੀ {language === "pa" && "✓"}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setLanguage("ur")} className="cursor-pointer font-medium">
+                    اردو {language === "ur" && "✓"}
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>

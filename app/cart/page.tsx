@@ -35,7 +35,7 @@ export default function CartPage() {
               Continue Shopping
             </Link>
             <h2 className="text-3xl font-bold text-foreground flex items-center gap-3">
-              <ShoppingBag className="w-8 h-8 text-primary animate-bounce-in" />
+              <ShoppingBag className="w-8 h-8 text-primary" />
               Cart Summary
             </h2>
             <p className="text-muted-foreground mt-2">
@@ -46,7 +46,7 @@ export default function CartPage() {
           {cart.length === 0 ? (
             <Card className="animate-in fade-in zoom-in-95 duration-500">
               <CardContent className="flex flex-col items-center justify-center py-16">
-                <ShoppingBag className="w-24 h-24 text-muted-foreground/30 mb-4 animate-pulse-slow" />
+                <ShoppingBag className="w-24 h-24 text-muted-foreground/30 mb-4" />
                 <h2 className="text-2xl font-semibold text-foreground mb-2 animate-slide-up">Your cart is empty</h2>
                 <p className="text-muted-foreground mb-6 animate-slide-up animate-delay-100">
                   Add some delicious items to get started!
@@ -160,7 +160,7 @@ export default function CartPage() {
                       </div>
 
                       {subtotal < 50 && (
-                        <p className="text-xs text-muted-foreground bg-muted p-3 rounded-lg animate-pulse-slow">
+                        <p className="text-xs text-muted-foreground bg-muted p-3 rounded-lg">
                           Add €{(50 - subtotal).toFixed(2)} more for free shipping!
                         </p>
                       )}

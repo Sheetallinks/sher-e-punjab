@@ -8,33 +8,35 @@ export function LoadingPage() {
   const animationDuration = 1000 // 1 second for text popup animation
 
   useEffect(() => {
-    // Show loading page on every page load/refresh
-    // Check if this is a page refresh/reload (not client-side navigation)
     if (typeof window !== 'undefined') {
-      // Check navigation type - show on reload or initial navigate
+      // Check if loading page has already been shown in this session
+      const hasShownLoading = sessionStorage.getItem('loadingPageShown')
+      
+      // Check if this is a hard refresh (full page reload)
       const perfEntries = window.performance.getEntriesByType('navigation')
       const navEntry = perfEntries[0] as PerformanceNavigationTiming | undefined
+      const isHardRefresh = navEntry?.type === 'reload'
       
-      // Show loading if it's a reload, navigate (initial load), or if navigation entry doesn't exist (initial load)
-      const isPageLoad = !navEntry || navEntry.type === 'reload' || navEntry.type === 'navigate'
-      
-      if (isPageLoad) {
-        // Show loading page
-        setIsLoading(true)
+      // Simple logic:
+      // 1. If already shown in this session and NOT a hard refresh, don't show
+      // 2. If hard refresh, always show
+      // 3. If first visit (not shown before), show it
+      if (hasShownLoading && !isHardRefresh) {
+        // Already shown in this session and it's client-side navigation - don't show
+        setIsLoading(false)
+      } else {
+        // First visit or hard refresh - show loading page
+        if (!hasShownLoading) {
+          // Mark that loading page has been shown
+          sessionStorage.setItem('loadingPageShown', 'true')
+        }
         
-        // Close loading page after 1 second
+        setIsLoading(true)
         const closeTimer = setTimeout(() => {
           setIsLoading(false)
         }, animationDuration)
-
-        return () => {
-          if (closeTimer) {
-            clearTimeout(closeTimer)
-          }
-        }
-      } else {
-        // If not a page load (client-side navigation), don't show loading
-        setIsLoading(false)
+        
+        return () => clearTimeout(closeTimer)
       }
     } else {
       // On server, show loading initially

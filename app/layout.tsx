@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Geist, Noto_Sans_Devanagari } from "next/font/google"
+import { Inter, Playfair_Display, Noto_Sans_Devanagari } from "next/font/google"
 import "./globals.css"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -12,10 +12,22 @@ import { CartProvider } from "@/contexts/cart-context"
 import { Toaster } from "@/components/ui/toaster"
 import { Suspense } from "react"
 
-const geist = Geist({ subsets: ["latin"] })
+const inter = Inter({ 
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+})
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+})
+
 const notoSansDevanagari = Noto_Sans_Devanagari({
   subsets: ["devanagari"],
-  weight: ["700"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-devanagari",
 })
 
@@ -32,7 +44,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geist.className} ${notoSansDevanagari.variable}`}>
+      <body className={`${inter.variable} ${playfair.variable} ${notoSansDevanagari.variable} font-sans antialiased`}>
         <LanguageProvider>
           <CartProvider>
             <Suspense fallback={<div>Loading...</div>}>

@@ -6,6 +6,8 @@ import { useState } from "react"
 import { allProducts } from "@/lib/products-data"
 import { Button } from "@/components/ui/button"
 import { useCart } from "@/contexts/cart-context"
+import { useLanguage } from "@/contexts/language-context"
+import { getTranslatedProductName } from "@/lib/product-translations"
 import { useToast } from "@/hooks/use-toast"
 import { ShoppingCart, ArrowLeft, Star } from "lucide-react"
 import Link from "next/link"
@@ -17,6 +19,7 @@ export default function ProductPage({ params }: { params: { name: string } }) {
   const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 })
   const { addToCart } = useCart()
   const { toast } = useToast()
+  const { language } = useLanguage()
 
   // Find product from all products
   const product = Object.values(allProducts)
@@ -119,7 +122,7 @@ export default function ProductPage({ params }: { params: { name: string } }) {
 
             {/* Product Name */}
             <div>
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">{product.name}</h1>
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">{getTranslatedProductName(product.name, language)}</h1>
               <div className="flex items-center gap-2">
                 <div className="flex gap-1">
                   {[...Array(5)].map((_, i) => (
@@ -143,7 +146,7 @@ export default function ProductPage({ params }: { params: { name: string } }) {
             <div className="bg-primary/10 border-l-4 border-primary p-6 rounded-lg">
               <h3 className="font-semibold text-foreground mb-2">About this product</h3>
               <p className="text-muted-foreground">
-                Premium quality {product.name} sourced directly from trusted suppliers. Perfect for authentic Indian
+                Premium quality {getTranslatedProductName(product.name, language)} sourced directly from trusted suppliers. Perfect for authentic Indian
                 cooking and traditional recipes. Carefully selected and packaged to maintain freshness and quality.
               </p>
             </div>

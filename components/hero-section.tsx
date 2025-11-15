@@ -76,10 +76,10 @@ export function HeroSection({ title, subtitle, image, children, slides }: HeroSe
       {/* Content */}
       <div className="relative container mx-auto px-4 h-full flex items-center z-20">
         <div className="max-w-2xl text-white">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 animate-slide-up text-balance drop-shadow-lg">
+          <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6 animate-fade-in text-balance drop-shadow-lg tracking-tight">
             {heroSlides[currentSlide].title}
           </h1>
-          <p className="text-xl md:text-2xl text-white/95 mb-8 animate-slide-up animate-delay-100 text-pretty drop-shadow-md">
+          <p className="text-lg md:text-xl text-white/90 mb-8 animate-fade-in animate-delay-100 text-pretty drop-shadow-md leading-relaxed font-light">
             {heroSlides[currentSlide].subtitle}
           </p>
           {heroSlides[currentSlide].children && (

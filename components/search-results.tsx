@@ -5,6 +5,8 @@ import Link from "next/link"
 import { X } from "lucide-react"
 import { allProducts } from "@/lib/products-data"
 import { Button } from "@/components/ui/button"
+import { useLanguage } from "@/contexts/language-context"
+import { getTranslatedProductName } from "@/lib/product-translations"
 
 interface SearchResultsProps {
   query: string
@@ -13,6 +15,7 @@ interface SearchResultsProps {
 
 export function SearchResults({ query, onClose }: SearchResultsProps) {
   const [results, setResults] = useState<any[]>([])
+  const { language } = useLanguage()
 
   useEffect(() => {
     if (!query.trim()) {
@@ -38,8 +41,8 @@ export function SearchResults({ query, onClose }: SearchResultsProps) {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="sticky top-0 bg-card border-b border-primary/20 p-4 flex items-center justify-between z-10">
-          <h3 className="text-lg font-bold text-foreground">Search Results ({results.length})</h3>
-          <Button variant="ghost" size="icon" onClick={onClose} className="rounded-full hover:bg-primary/10">
+          <h3 className="text-lg font-semibold font-serif text-foreground">Search Results ({results.length})</h3>
+          <Button variant="ghost" size="icon" onClick={onClose} className="rounded-lg hover:bg-primary/10">
             <X className="w-5 h-5" />
           </Button>
         </div>
@@ -62,7 +65,7 @@ export function SearchResults({ query, onClose }: SearchResultsProps) {
                   </div>
                   <div className="text-center w-full">
                     <p className="text-sm font-semibold text-foreground line-clamp-2 group-hover:text-primary transition-colors">
-                      {product.name}
+                      {getTranslatedProductName(product.name, language)}
                     </p>
                     <p className="text-xs text-muted-foreground mb-2">{product.category}</p>
                     <p className="text-lg font-bold text-primary group-hover:text-accent transition-colors">

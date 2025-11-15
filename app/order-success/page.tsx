@@ -12,12 +12,11 @@ export default function OrderSuccessPage() {
         <CardContent className="p-12 text-center">
           <div className="mb-6 flex justify-center">
             <div className="relative">
-              <CheckCircle className="w-24 h-24 text-green-500 animate-bounce-in" />
-              <div className="absolute inset-0 bg-green-500/20 rounded-full animate-ping" />
+              <CheckCircle className="w-20 h-20 text-green-600" />
             </div>
           </div>
 
-          <h1 className="text-4xl font-bold text-foreground mb-4 animate-slide-up">Order Confirmed!</h1>
+          <h1 className="text-4xl font-serif font-bold text-foreground mb-4">Order Confirmed!</h1>
 
           <p className="text-lg text-muted-foreground mb-8 animate-slide-up animate-delay-100">
             Thank you for your order. Your order has been successfully placed and will be delivered in{" "}

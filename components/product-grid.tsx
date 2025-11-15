@@ -2,6 +2,8 @@
 
 import { Button } from "@/components/ui/button"
 import { useCart } from "@/contexts/cart-context"
+import { useLanguage } from "@/contexts/language-context"
+import { getTranslatedProductName } from "@/lib/product-translations"
 import { ShoppingCart } from "lucide-react"
 
 interface Product {
@@ -18,6 +20,7 @@ interface ProductGridProps {
 
 export function ProductGrid({ products }: ProductGridProps) {
   const { addToCart } = useCart()
+  const { language, t } = useLanguage()
 
   const handleAddToCart = (product: Product) => {
     addToCart({
@@ -38,16 +41,22 @@ export function ProductGrid({ products }: ProductGridProps) {
         >
           <div className="relative overflow-hidden aspect-square bg-muted">
             <img
-              src={product.image || "/placeholder.svg"}
+              src={product.image || "/placeholder.jpg"}
               alt={product.name}
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 animate-wipe-in"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement
+                if (!target.src.includes("placeholder.jpg")) {
+                  target.src = "/placeholder.jpg"
+                }
+              }}
             />
             <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/15 group-hover:via-accent/10 group-hover:to-accent/15 transition-all duration-500" />
 
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer" />
 
             {product.badge && (
-              <div className="absolute top-3 right-3 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-semibold shadow-lg animate-pulse">
+              <div className="absolute top-3 right-3 bg-primary text-primary-foreground px-2.5 py-1 rounded-md text-xs font-semibold shadow-md">
                 {product.badge}
               </div>
             )}
@@ -55,7 +64,7 @@ export function ProductGrid({ products }: ProductGridProps) {
 
           <div className="p-4 flex flex-col flex-grow">
             <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors line-clamp-2 flex-grow">
-              {product.name}
+              {getTranslatedProductName(product.name, language)}
             </h3>
             <p className="text-2xl font-bold text-primary mb-3 group-hover:text-accent transition-colors">
               {product.price}
@@ -66,7 +75,7 @@ export function ProductGrid({ products }: ProductGridProps) {
               onClick={() => handleAddToCart(product)}
             >
               <ShoppingCart className="w-4 h-4 group-hover/btn:scale-110 transition-transform" />
-              Add to Cart
+              {t("addToCart")}
             </Button>
           </div>
 

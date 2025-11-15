@@ -77,24 +77,24 @@ export default function ContactPage() {
 
               <div className="space-y-6">
                 <div className="flex gap-4 p-4 rounded-lg bg-card/50 border border-primary/20 hover:border-primary/50 hover:bg-card/80 transition-all duration-300 hover:shadow-lg hover:scale-105 hover:-translate-y-1 animate-fade-in">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center animate-bounce-in">
-                    <MapPin className="w-6 h-6 text-primary" />
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center border border-primary/20 shadow-sm">
+                    <MapPin className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Address</h3>
                     <p className="text-muted-foreground">
-                      123 Punjab Street
+                      Rua da Índia, 123
                       <br />
-                      Little India District
+                      Lisboa, 1000-001
                       <br />
-                      New York, NY 10001
+                      Portugal
                     </p>
                   </div>
                 </div>
 
                 <div className="flex gap-4 p-4 rounded-lg bg-card/50 border border-primary/20 hover:border-primary/50 hover:bg-card/80 transition-all duration-300 hover:shadow-lg hover:scale-105 hover:-translate-y-1 animate-fade-in animate-delay-100">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center animate-bounce-in animate-delay-100">
-                    <Phone className="w-6 h-6 text-primary" />
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center border border-primary/20 shadow-sm">
+                    <Phone className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Phone</h3>
@@ -107,8 +107,8 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex gap-4 p-4 rounded-lg bg-card/50 border border-primary/20 hover:border-primary/50 hover:bg-card/80 transition-all duration-300 hover:shadow-lg hover:scale-105 hover:-translate-y-1 animate-fade-in animate-delay-200">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center animate-bounce-in animate-delay-200">
-                    <Mail className="w-6 h-6 text-primary" />
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center border border-primary/20 shadow-sm">
+                    <Mail className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Email</h3>
@@ -121,8 +121,8 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex gap-4 p-4 rounded-lg bg-card/50 border border-primary/20 hover:border-primary/50 hover:bg-card/80 transition-all duration-300 hover:shadow-lg hover:scale-105 hover:-translate-y-1 animate-fade-in animate-delay-300">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center animate-bounce-in animate-delay-300">
-                    <Clock className="w-6 h-6 text-primary" />
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center border border-primary/20 shadow-sm">
+                    <Clock className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Store Hours</h3>
@@ -138,7 +138,7 @@ export default function ContactPage() {
               <div className="mt-8 p-6 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg border border-primary/30 hover:border-primary/60 transition-all duration-300 hover:shadow-lg hover:scale-105 animate-fade-in animate-delay-400">
                 <h3 className="font-semibold mb-2">Need Directions?</h3>
                 <p className="text-muted-foreground mb-4">
-                  We're located in the heart of Little India, easily accessible by subway or car.
+                  We're located in the heart of Lisbon, easily accessible by metro or car.
                 </p>
                 <Button
                   variant="outline"

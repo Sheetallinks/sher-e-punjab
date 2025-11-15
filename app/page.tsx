@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Truck, Shield, Clock, Heart } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
-import { LoadingPage } from "@/components/loading-page"
 import {
   bakeryProducts,
   spicesProducts,
@@ -101,9 +100,6 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Loading Page */}
-      <LoadingPage />
-
       <div className="relative">
         <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
           {/* Simplified background - reduced blur for better performance */}
@@ -202,11 +198,11 @@ export default function HomePage() {
                     className="text-center animate-fade-in hover:scale-105 transition-transform duration-300 p-6 rounded-2xl bg-card/40 border border-primary/20 hover:border-primary/50 hover:bg-card/60"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-full mb-4 shadow-lg hover:shadow-xl transition-shadow duration-300 animate-bounce-in">
-                      <Icon className="w-10 h-10 text-primary-foreground" />
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-lg mb-4 shadow-sm hover:shadow-md transition-all duration-300 border border-primary/20">
+                      <Icon className="w-7 h-7 text-primary" />
                     </div>
-                    <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                    <p className="text-muted-foreground text-pretty">{feature.description}</p>
+                    <h3 className="text-lg font-semibold mb-2 font-serif">{feature.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
                   </div>
                 )
               })}

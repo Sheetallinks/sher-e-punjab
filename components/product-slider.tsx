@@ -4,6 +4,8 @@ import { useState, useEffect, useRef } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useCart } from "@/contexts/cart-context"
+import { useLanguage } from "@/contexts/language-context"
+import { getTranslatedProductName } from "@/lib/product-translations"
 
 interface Product {
   name: string
@@ -19,6 +21,7 @@ interface ProductSliderProps {
 
 export function ProductSlider({ products, title }: ProductSliderProps) {
   const { addToCart } = useCart()
+  const { language } = useLanguage()
   const [currentIndex, setCurrentIndex] = useState(0)
   const [itemsPerView, setItemsPerView] = useState(4)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
@@ -151,7 +154,7 @@ export function ProductSlider({ products, title }: ProductSliderProps) {
                   </div>
                   <div className="p-4 flex-grow flex flex-col">
                     <p className="text-xs text-muted-foreground mb-1">{product.category}</p>
-                    <h3 className="font-semibold text-lg mb-2 text-balance flex-grow">{product.name}</h3>
+                    <h3 className="font-semibold text-lg mb-2 text-balance flex-grow">{getTranslatedProductName(product.name, language)}</h3>
                     <p className="text-primary font-bold text-xl">{product.price}</p>
                     <Button className="w-full mt-3" size="sm" onClick={() => handleAddToCart(product)}>
                       Add to Cart
@@ -161,7 +164,7 @@ export function ProductSlider({ products, title }: ProductSliderProps) {
                   {hoveredProduct === product && (
                     <div className="absolute inset-0 bg-card/95 backdrop-blur-sm p-4 flex flex-col justify-center items-center animate-fade-in z-10 border-2 border-primary rounded-lg">
                       <p className="text-sm text-muted-foreground mb-2">{product.category}</p>
-                      <h3 className="text-xl font-bold text-center mb-3 text-balance">{product.name}</h3>
+                      <h3 className="text-xl font-bold text-center mb-3 text-balance">{getTranslatedProductName(product.name, language)}</h3>
                       <p className="text-3xl font-bold text-primary mb-4">{product.price}</p>
                       <p className="text-sm text-center text-muted-foreground mb-4 line-clamp-3">
                         Fresh and authentic {product.category.toLowerCase()} product. Sourced directly from trusted

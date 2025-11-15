@@ -221,7 +221,7 @@ export default function CheckoutPage() {
                             <FormItem>
                               <FormLabel>City *</FormLabel>
                               <FormControl>
-                                <Input placeholder="New York" {...field} />
+                                <Input placeholder="Lisboa" {...field} />
                               </FormControl>
                               <FormMessage />
                             </FormItem>

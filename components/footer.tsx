@@ -158,8 +158,8 @@ export function Footer() {
           <div className="animate-fade-in animate-delay-300">
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-secondary-foreground/80">
-              <li className="hover:text-primary transition-colors duration-300">123 Punjab Street</li>
-              <li className="hover:text-primary transition-colors duration-300">New York, NY 10001</li>
+              <li className="hover:text-primary transition-colors duration-300">Rua da Índia, 123</li>
+              <li className="hover:text-primary transition-colors duration-300">Lisboa, 1000-001, Portugal</li>
               <li className="hover:text-primary transition-colors duration-300">(555) 123-4567</li>
               <li className="hover:text-primary transition-colors duration-300">info@sherepunjab.com</li>
             </ul>
